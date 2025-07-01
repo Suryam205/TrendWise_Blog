@@ -6,8 +6,8 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  overflow-x: hidden; /* ✨ Prevents horizontal overflow */
-  box-sizing: border-box; /* Ensures padding doesn't add extra width */
+  overflow-x: hidden;
+  box-sizing: border-box; 
 }
 
 .navbar-inner {
