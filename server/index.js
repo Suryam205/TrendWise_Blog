@@ -14,7 +14,7 @@ const commentRoutes = require('./routes/comments');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// Connect to MongoDB
+
 connectDB();
 
 
@@ -48,7 +48,7 @@ app.use('/api/generate-blog', generateBlogRoute);
 app.use('/api/users', userRoutes);  
 app.use('/api/comments', commentRoutes);
 
-// 🕒 Auto-generate blogs every hour
+// Auto-generate blogs every hour
 cron.schedule('0 * * * *', async () => {
   try {
     console.log('Auto-generating blog post from trending topic...');
