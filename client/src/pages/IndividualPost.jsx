@@ -16,9 +16,9 @@ const IndividualPost = () => {
   const fetchUser = async () => {
     try {
       const res = await axios.get(`${API}/api/users/me`, {
-        withCredentials: true, // sends cookies
+        withCredentials: true, 
       });
-      setUser(res.data); // assuming res.data contains user object
+      setUser(res.data); 
     } catch (error) {
       console.error('Error fetching user:', error);
       setUser(null); 
@@ -31,7 +31,7 @@ useEffect(() => {
     const fetchPost = async () => {
       try {
         const res = await axios.get(`${API}/api/posts/${slug}`);
-        setPostId(res.data.post._id); // Assuming the post object has an _id field
+        setPostId(res.data.post._id); 
       } catch (error) {
         console.error('Error fetching post:', error);
       }
