@@ -4,7 +4,7 @@ const Post = require('../models/Post');
 const router = express.Router();
 const authMiddleware = require('../middleware/auth'); // JWT middleware
 
-// Add a comment (requires login)
+
 router.post('/:postId', authMiddleware, async (req, res) => {
   try {
     const { message } = req.body;
@@ -34,7 +34,7 @@ router.get('/:postId', async (req, res) => {
   }
 });
 
-// DELETE /api/comments/:commentId
+// DELETE 
 router.delete('/:commentId', authMiddleware, async (req, res) => {
   try {
     const comment = await Comment.findById(req.params.commentId);
