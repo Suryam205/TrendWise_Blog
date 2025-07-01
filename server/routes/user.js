@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const userModel = require('../models/user'); // ✅ now this will work
+const userModel = require('../models/user'); 
 const authMiddleware = require('../middleware/auth');
 
 router.post('/signup', async (req, res) => {
@@ -50,7 +50,7 @@ router.post('/signup', async (req, res) => {
 });
 
 
-// @route   POST /api/users/login
+
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -66,21 +66,21 @@ router.post('/login', async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(401).json({ message: 'Invalid credentials' });
 
-    // ✅ Create JWT Token
+   
     const token = jwt.sign(
       { id: user._id, name: user.name, email: user.email },
       process.env.JWT_SECRET,
     
     );
 
-    // ✅ Set Token as HTTP-Only Cookie
+
     res.cookie('token', token, {
       httpOnly: true,
       sameSite: 'Lax',
       maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });
 
-    // ✅ Response
+
     res.status(200).json({
       message: 'Login successful',
       user: {
