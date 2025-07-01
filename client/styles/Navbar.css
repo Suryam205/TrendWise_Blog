@@ -1,37 +1,39 @@
-.navbar-container {
+ .navbar-container {
   background-color: #ffffff;
   padding: 16px 32px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   width: 100%;
+  position: relative;
 }
 
 .navbar-inner {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0072eb;
+  text-decoration: none;
+  flex-shrink: 0;
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 24px; 
-}
-
-.navbar-logo {
-    position: absolute;
-  font-size: 24px;
-  font-weight: bold;
-  color: #0072eb;
-  text-decoration: none;
-  left: 15px;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 
 .navbar-links {
- 
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .navbar-link {
@@ -45,7 +47,6 @@
   color: #0072eb;
 }
 
-
 .navbar-link-active {
   font-weight: 600;
   text-decoration: underline;
@@ -57,19 +58,42 @@
   cursor: not-allowed;
 }
 
-
 .logout-btn {
-  position: absolute;
   background: none;
   border: none;
-  color: inherit;
-  font: inherit;
+  color: #444;
+  font-size: 16px;
   cursor: pointer;
-  padding: 0;
-  right: 15px;
-
-  
+  padding: 8px;
+  transition: color 0.2s ease;
 }
 
+.logout-btn:hover {
+  color: #0072eb;
+}
 
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .navbar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
 
+  .navbar-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .logout-btn {
+    align-self: flex-end;
+  }
+}
