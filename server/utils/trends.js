@@ -1,4 +1,4 @@
-// utils/trends.js
+
 const axios = require('axios');
 
 async function getTrendingTopics() {
