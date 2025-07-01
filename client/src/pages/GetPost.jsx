@@ -27,7 +27,7 @@ const GetPost = () => {
  
   useEffect(() => {
     fetchAndGeneratePosts();
-    const interval = setInterval(fetchAndGeneratePosts, );//5 * 60 * 1000
+    const interval = setInterval(fetchAndGeneratePosts,7* 60 * 1000 );
     return () => clearInterval(interval);
   }, []);
 
