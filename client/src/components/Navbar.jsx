@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../../styles/Navbar.css';
 
+const API = import.meta.env.VITE_API_BASE_URL;
+
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -13,7 +15,7 @@ const Navbar = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get('http://localhost:4000/api/users/me', {
+        const res = await axios.get(`${API}/api/users/me`, {
           withCredentials: true,
         });
         setUser(res.data); 
@@ -27,7 +29,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:4000/api/users/logout', {}, { withCredentials: true });
+      await axios.post(`${API}/api/users/logout`, {}, { withCredentials: true });
       setUser(null);
       alert('Logout successful!');
       navigate('/');

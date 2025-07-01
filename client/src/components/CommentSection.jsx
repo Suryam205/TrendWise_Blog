@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../../styles/CommentSection.css';
+const API = import.meta.env.VITE_API_BASE_URL;
+
+
 
 const CommentSection = ({ postId }) => {
   const [comments, setComments] = useState([]);
@@ -12,7 +15,7 @@ const CommentSection = ({ postId }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get('http://localhost:4000/api/users/me', {
+        const res = await axios.get(`${API}/api/users/me`, {
           withCredentials: true,
         });
         setUser(res.data);
@@ -31,7 +34,7 @@ const CommentSection = ({ postId }) => {
 
     const fetchComments = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/api/comments/${postId}`);
+        const res = await axios.get(`${API}/api/comments/${postId}`);
         setComments(res.data);
       } catch (err) {
         console.error('Failed to fetch comments:', err);
@@ -50,7 +53,7 @@ const CommentSection = ({ postId }) => {
 
     try {
       const res = await axios.post(
-        `http://localhost:4000/api/comments/${postId}`,
+        `${API}/api/comments/${postId}`,
         { message },
         { withCredentials: true }
       );
@@ -64,7 +67,7 @@ const CommentSection = ({ postId }) => {
   // Delete comment
   const handleDelete = async (commentId) => {
     try {
-      await axios.delete(`http://localhost:4000/api/comments/${commentId}`, {
+      await axios.delete(`${API}/api/comments/${commentId}`, {
         withCredentials: true,
       });
       setComments(comments.filter((c) => c._id !== commentId));

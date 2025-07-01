@@ -4,6 +4,9 @@ import axios from 'axios';
 import { Helmet } from 'react-helmet-async';
 import '../../styles/PostDetail.css';
 
+const API = import.meta.env.VITE_API_BASE_URL;
+
+
 const PostDetail = () => {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
@@ -11,7 +14,7 @@ const PostDetail = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/api/posts/${slug}`);
+        const res = await axios.get(`${API}/api/posts/${slug}`);
         setPost(res.data.post);
       } catch (error) {
         console.error('Error fetching post:', error);

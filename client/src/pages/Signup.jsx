@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../../styles/Signup.css';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+const API = import.meta.env.VITE_API_BASE_URL;
+
 
 const Signup = () => {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
@@ -17,7 +19,7 @@ const Signup = () => {
     setStatus('Creating account...');
 
     try {
-      const res = await axios.post('http://localhost:4000/api/users/signup', form);
+      const res = await axios.post(`${API}/api/users/signup`, form);
 
       if (res.status === 201) {
         setStatus('Signup successful!');

@@ -5,6 +5,7 @@ import CommentSection from '../components/CommentSection';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
+const API = import.meta.env.VITE_API_BASE_URL;
 
 const IndividualPost = () => {
     const { slug } = useParams();
@@ -14,7 +15,7 @@ const IndividualPost = () => {
   useEffect(() => {
   const fetchUser = async () => {
     try {
-      const res = await axios.get('http://localhost:4000/api/users/me', {
+      const res = await axios.get(`${API}/api/users/me`, {
         withCredentials: true, // sends cookies
       });
       setUser(res.data); // assuming res.data contains user object
@@ -29,7 +30,7 @@ const IndividualPost = () => {
 useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/api/posts/${slug}`);
+        const res = await axios.get(`${API}/api/posts/${slug}`);
         setPostId(res.data.post._id); // Assuming the post object has an _id field
       } catch (error) {
         console.error('Error fetching post:', error);

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+const API = import.meta.env.VITE_API_BASE_URL;
+
 const GenerateBlogs = () => {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState('');
@@ -10,7 +12,7 @@ const GenerateBlogs = () => {
       setLoading(true);
       setStatus('Generating blog posts...');
 
-      const res = await axios.post('http://localhost:4000/api/generate-blog');
+      const res = await axios.post(`${API}/api/generate-blog`);
 
       if (res.status === 201 && res.data.posts?.length) {
         setStatus(`${res.data.posts.length} new blog post(s) generated`);

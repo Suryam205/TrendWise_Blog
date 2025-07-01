@@ -2,6 +2,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import '../../styles/CreatePost.css'; // Make sure the path matches your structure
 import Navbar from '../components/Navbar';
+const API = import.meta.env.VITE_API_BASE_URL;
+
 
 const CreatePost = () => {
   const [title, setTitle] = useState('');
@@ -14,7 +16,7 @@ const CreatePost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:4000/api/posts', {
+      const res = await axios.post(`${API}/api/posts`, {
         title,
         content,
         author,

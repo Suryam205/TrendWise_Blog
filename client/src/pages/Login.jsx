@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../../styles/Login.css';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+const API = import.meta.env.VITE_API_BASE_URL;
+
 
 const Login = () => {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -18,7 +20,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        'http://localhost:4000/api/users/login',
+        `${API}/api/users/login`,
         form,
         { withCredentials: true } // Needed to receive/set cookie
       );

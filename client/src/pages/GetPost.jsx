@@ -2,28 +2,27 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../../styles/GetPost.css';
+const API = import.meta.env.VITE_API_BASE_URL;
+
 
 const GetPost = () => {
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const fetchAndGeneratePosts = async () => {
     try {
-      const res = await axios.get('http://localhost:4000/api/posts');
+      const res = await axios.get(`${API}/api/posts`);
       const postsData = res.data.posts || [];
 
       if (postsData.length === 0) {
-        await axios.post('http://localhost:4000/api/generate-blog');
-        const res2 = await axios.get('http://localhost:4000/api/posts');
+        await axios.post(`${API}/api/generate-blog`);
+        const res2 = await axios.get(`${API}/api/posts`);
         setPosts(res2.data.posts || []);
       } else {
         setPosts(postsData.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
       }
     } catch (error) {
       console.error('Failed to generate or fetch posts:', error);
-    } finally {
-      setLoading(false);
-    }
+    } 
   };
  
   useEffect(() => {
@@ -32,9 +31,7 @@ const GetPost = () => {
     return () => clearInterval(interval);
   }, []);
 
-  if (loading) {
-    return <div className="loading-message">📰 Loading trending blogs...</div>;
-  }
+ 
 
   return (
     <div className="get-post-container">
@@ -55,7 +52,7 @@ const GetPost = () => {
                 e.target.src = 'https://placehold.co/600x400?text=No+Image';
               }}
               className="post-image"
-          />
+          />s
 
 
               <div className="post-content">
