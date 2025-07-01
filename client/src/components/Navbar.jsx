@@ -18,9 +18,9 @@ const Navbar = () => {
         const res = await axios.get(`${API}/api/users/me`, {
           withCredentials: true,
         });
-        setUser(res.data); 
+        setUser(res.data);
       } catch (err) {
-        setUser(null); 
+        setUser(null);
       }
     };
 
@@ -41,45 +41,41 @@ const Navbar = () => {
   return (
     <nav className="navbar-container">
       <div className="navbar-inner">
-        <div className="navbar-left">
-          <Link to="/" className="navbar-logo">
-            TrendWise
+        <Link to="/" className="navbar-logo">TrendWise</Link>
+
+        <div className="navbar-links">
+          <Link
+            to="/"
+            className={`navbar-link ${isActive('/') ? 'navbar-link-active' : ''}`}
+          >
+            Home
           </Link>
 
-          <div className="navbar-links">
-            <Link
-              to="/"
-              className={`navbar-link ${isActive('/') ? 'navbar-link-active' : ''}`}
-            >
-              Home
-            </Link>
+          <Link
+            to={user ? "/create" : "#"}
+            className={`navbar-link ${!user ? 'navbar-disabled' : ''}`}
+            onClick={(e) => {
+              if (!user) {
+                e.preventDefault();
+                alert("Please login to create a blog.");
+              }
+            }}
+          >
+            Create Blog
+          </Link>
 
+          {user ? (
+            <button className="navbar-link logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          ) : (
             <Link
-              to={user ? "/create" : "#"}
-              className={`navbar-link ${!user ? 'navbar-disabled' : ''}`}
-              onClick={(e) => {
-                if (!user) {
-                  e.preventDefault();
-                  alert("Please login to create a blog.");
-                }
-              }}
+              to="/login"
+              className={`navbar-link ${isActive('/login') ? 'navbar-link-active' : ''}`}
             >
-              Create Blog
+              Login
             </Link>
-
-            {user ? (
-              <button className="navbar-link logout-btn" onClick={handleLogout}>
-                Logout
-              </button>
-            ) : (
-              <Link
-                to="/login"
-                className={`navbar-link ${isActive('/login') ? 'navbar-link-active' : ''}`}
-              >
-                Login
-              </Link>
-            )}
-          </div>
+          )}
         </div>
       </div>
     </nav>
