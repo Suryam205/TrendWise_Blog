@@ -27,7 +27,7 @@ const GenerateBlogs = () => {
     }
   };
 
-  // Optional: auto-trigger once on mount
+  
   useEffect(() => {
     handleGenerate();
   }, []);
