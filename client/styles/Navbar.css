@@ -1,4 +1,4 @@
- .navbar-container {
+.navbar-container {
   background-color: #ffffff;
   padding: 16px 32px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
@@ -6,6 +6,8 @@
   position: sticky;
   top: 0;
   z-index: 10;
+  overflow-x: hidden; /* ✨ Prevents horizontal overflow */
+  box-sizing: border-box; /* Ensures padding doesn't add extra width */
 }
 
 .navbar-inner {
@@ -15,6 +17,9 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%; /* Ensures it doesn’t overflow */
+  box-sizing: border-box;
+  padding: 0 16px;
 }
 
 .navbar-logo {
@@ -22,12 +27,14 @@
   font-weight: bold;
   color: #0072eb;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .navbar-links {
   display: flex;
   gap: 20px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .navbar-link {
@@ -39,6 +46,7 @@
   background: none;
   cursor: pointer;
   font-family: inherit;
+  white-space: nowrap;
 }
 
 .navbar-link:hover {
@@ -74,6 +82,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    padding: 0 16px;
   }
 
   .navbar-links {
@@ -83,3 +92,4 @@
     width: 100%;
   }
 }
+
