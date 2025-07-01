@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 4000;
 connectDB();
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://trendwise-blog-server.onrender.com',
   credentials: true 
 }));
 
