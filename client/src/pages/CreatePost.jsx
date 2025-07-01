@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import '../../styles/CreatePost.css'; // Make sure the path matches your structure
+import '../../styles/CreatePost.css'; 
 import Navbar from '../components/Navbar';
 const API = import.meta.env.VITE_API_BASE_URL;
 
