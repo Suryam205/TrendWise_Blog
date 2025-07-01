@@ -128,9 +128,10 @@ router.post('/logout' , async (req, res) => {
         message: 'No user is logged in' 
       });
     }
-    res.clearCookie('token', {
+    res.clearCookie("token", {
       httpOnly: true,
-      sameSite: 'Lax'
+      secure: true,
+      sameSite: "None",
     });
     res.status(200).json({ message: 'Logout successful' });
   } catch (err) {
