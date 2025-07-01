@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom"; // for routing to /article/:slug
+import { Link } from "react-router-dom"; 
 import Navbar from "../components/Navbar";
 import GetPost from "./GetPost";
 import GenerateBlogs from "../components/GenerateBlogs";
