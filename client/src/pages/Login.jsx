@@ -22,7 +22,7 @@ const Login = () => {
       const res = await axios.post(
         `${API}/api/users/login`,
         form,
-        { withCredentials: true } // Needed to receive/set cookie
+        { withCredentials: true } 
       );
    
       if (res.status === 200) {
