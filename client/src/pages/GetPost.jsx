@@ -52,7 +52,7 @@ const GetPost = () => {
                 e.target.src = 'https://placehold.co/600x400?text=No+Image';
               }}
               className="post-image"
-          />s
+          />
 
 
               <div className="post-content">
