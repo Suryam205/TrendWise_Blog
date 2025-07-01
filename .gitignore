@@ -1,0 +1,52 @@
+# === GLOBAL ===
+node_modules/
+.env
+.env.local
+.env.*.local
+.DS_Store
+Thumbs.db
+
+# === LOG FILES ===
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# === FRONTEND ===
+client/dist/
+client/node_modules/
+client/.env
+client/.DS_Store
+
+# Vite cache
+client/.vite/
+
+# Mac system files
+client/public/.DS_Store
+
+# === BACKEND ===
+server/node_modules/
+server/.env
+server/.DS_Store
+
+# MongoDB dump files
+*.mongodb
+*.bak
+
+# === IDE/EDITOR ===
+.vscode/
+.idea/
+*.swp
+
+# === OS & Build Tools ===
+*.log
+*.tgz
+*.gz
+*.zip
+
+# === TEST COVERAGE ===
+coverage/
+
+
+
+

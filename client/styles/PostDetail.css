@@ -1,0 +1,81 @@
+/* Scoped and unique to PostDetail */
+.postDetail-wrapper {
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+
+.postDetail-loading {
+  text-align: center;
+  padding: 80px 0;
+  font-size: 18px;
+  color: #555;
+}
+
+.postDetail-header {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.postDetail-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.postDetail-date {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.postDetail-media {
+  width: 100%;
+  margin: 0 auto 30px;
+}
+
+.postDetail-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+.postDetail-content {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 17px;
+  color: #333;
+  line-height: 1.7;
+}
+
+.postDetail-content h2,
+.postDetail-content h3 {
+  margin-top: 30px;
+  color: #111;
+}
+
+.postDetail-content p {
+  margin-bottom: 20px;
+}
+
+.postDetail-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 30px 0;
+}
+
+@media (max-width: 768px) {
+  .postDetail-title {
+    font-size: 28px;
+  }
+
+  .postDetail-content {
+    font-size: 16px;
+  }
+}
